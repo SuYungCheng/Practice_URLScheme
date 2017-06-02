@@ -1,7 +1,7 @@
 # Practice_URLScheme
->APP A open APP B
+>APP QRCodeReader open APP TextReader
 
-### 主要使用下列方法(APP A)：
+### 主要使用下列方法(APP QRCodeReader)：
 ```
             if let url = URL(string: decodedURL) {
                 if UIApplication.shared.canOpenURL(url) {
@@ -10,7 +10,7 @@
             }
           
 ```
-### APP B Info.plist:
+### APP TextReader Info.plist:
 -  Add -> URL Types -> URL identifier -> com.dcview.TextReader(APP Bundle ID)
 -  Add -> URL Types -> URL Schemes -> textreader
 ```
@@ -26,7 +26,7 @@
 		</dict>
 	</array>
 ```
-### APP B AppDelegate:
+### APP TextReader AppDelegate:
 show text
 ```
 func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -39,7 +39,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
         return true
     }
 ```
-### APP A Info.plist:
+### APP QRCodeReader Info.plist:
 ```
 <key>LSApplicationQueriesSchemes</key>
     <array>
